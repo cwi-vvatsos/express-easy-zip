@@ -110,7 +110,7 @@ function _ZIP(opt) {
                 var promise = (file.path !== undefined) ?
                                  addFilePath(file.path, fileOpt) :
                                  (file.stream !== undefined) ?
-                                 addStream(file.stream):
+                                 addStream(file.stream, fileOpt):
                                  addFileContent(file.content, fileOpt);
 
                 promise.then(resolve, function(e){
