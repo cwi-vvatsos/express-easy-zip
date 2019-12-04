@@ -12,7 +12,7 @@
 ## Installation
 
 ```bash
-npm install --save express-easy-zip
+
 ```
 
 ## Usage
