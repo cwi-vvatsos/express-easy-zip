@@ -27,6 +27,10 @@ app.use(zip());
 app.use('/zip', function(req, res){
     res.zip({
         files: [
+        {
+        stream:SOME_TYPE_OF_READABLE_STREAM,
+        name: 'file-name'
+        },
             { content: 'this is a string',      //options can refer to [http://archiverjs.com/zip-stream/ZipStream.html#entry](http://archiverjs.com/zip-stream/ZipStream.html#entry)
                  name: 'file-name',
                  mode: 0755,
