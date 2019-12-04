@@ -87,6 +87,17 @@ function _ZIP(opt) {
 
             });
         }
+        function addStream(data, opt){
+            return new Promise(function(resolve, reject){
+                if(data !== undefined){
+                    zipEntry(zip, data, opt)
+                    .then(resolve, reject);
+                }else{
+                    reject(new ZIPError());
+                }
+
+            });
+        }             
         function addFile(file) {
             return new Promise(function(resolve, reject){
                 var fileOpt = {
@@ -98,6 +109,8 @@ function _ZIP(opt) {
                 };
                 var promise = (file.path !== undefined) ?
                                  addFilePath(file.path, fileOpt) :
+                                 (this.stream !== undefined) ?
+                                 addStream(this.stream:
                                  addFileContent(file.content, fileOpt);
 
                 promise.then(resolve, function(e){
